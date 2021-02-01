@@ -1,0 +1,111 @@
+.TmpPage {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+
+  background-color: #e5e5e5;
+  color: #0376a3;
+  padding-left: 20%;
+  padding-right: 20%;
+
+  .TmpPage__content {
+    h1 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 44px;
+      padding-bottom: 30px;
+      text-align: center;
+    }
+
+    p {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
+    .TmpPage__logo {
+      padding-bottom: 50px;
+    }
+
+    .TmpPage__phone {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 37px;
+      color: #039fdd;
+      padding-bottom: 30px;
+      text-align: center;
+
+      img {
+        margin-top: -5px;
+        margin-right: 10px;
+      }
+    }
+
+    .TmpPage__address {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+
+      p {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        padding: 0;
+      }
+
+      img {
+        margin-top: -5px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  @media screen and(max-width: 576px) {
+    padding: 20px;
+    .TmpPage__content {
+      h1 {
+        font-size: 32px;
+        line-height: 120%;
+        padding-bottom: 20px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 120%;
+        padding-bottom: 20px;
+      }
+
+      .TmpPage__phone {
+        font-size: 24px;
+        padding-bottom: 20px;
+      }
+
+      .TmpPage__address {
+        font-size: 20px;
+        line-height: 120%;
+        p {
+          font-size: 20px;
+          line-height: 120%;
+        }
+      }
+
+      .TmpPage__logo {
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
