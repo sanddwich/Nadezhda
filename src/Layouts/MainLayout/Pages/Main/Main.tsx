@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import Block1 from './Block1/Block1'
 import './Main.scss'
 import TmpPage from './TmpPage/TmpPage'
 
@@ -12,7 +13,8 @@ class Main extends React.Component<MainProps, MainState> {
     return (
       <Container fluid className="Main p-0">
         
-        <TmpPage />
+        {/* <TmpPage /> */}
+        <Block1 />
 
       </Container>
     )
