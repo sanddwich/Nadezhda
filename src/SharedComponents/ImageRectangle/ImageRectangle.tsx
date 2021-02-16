@@ -15,10 +15,11 @@ class ImageRectangle extends React.Component<ImageRectangleProps, ImageRectangle
     return (
       <Container
         fluid
-        className="ImageRectangle p-0"
-        style={{
+        className="ImageRectangle hvr-grow p-0 d-flex justify-content-center align-items-center"
+        style={{ 
           height: this.props.height,
           backgroundImage: `url("${this.props.img}")`,
+          backgroundSize: 'cover',
           width: this.props.width ? this.props.width : '',
         }}
       >

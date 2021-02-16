@@ -10,6 +10,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import 'swiper/components/pagination/pagination.scss'
+import ImageRectangle from '../../../../../SharedComponents/ImageRectangle/ImageRectangle'
+import RequestForm from '../../../../../SharedComponents/RequestForm/RequestForm'
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, Autoplay])
@@ -52,6 +54,10 @@ class Block1 extends React.Component<Block1Props, Block1State> {
         },
       ],
     }
+  }
+
+  sendRequestFormData = (phone: string, date: string): void => {
+
   }
 
   render() {
@@ -104,12 +110,12 @@ class Block1 extends React.Component<Block1Props, Block1State> {
               })}
             </Swiper>
           </div>
-          
+
           <Container className="Block1__SlideArrows">
             <Row className="Block1__SlideArrowsCont m-0">
               <div className="Block1__navigation">
-                <img id="Block1__PrewArrow" src="/img/leftArrow.svg" alt=""/>
-                <img id="Block1__NextArrow" src="/img/rightArrow.svg" alt=""/>
+                <img id="Block1__PrewArrow" src="/img/leftArrow.svg" alt="" />
+                <img id="Block1__NextArrow" src="/img/rightArrow.svg" alt="" />
               </div>
             </Row>
           </Container>
@@ -127,13 +133,22 @@ class Block1 extends React.Component<Block1Props, Block1State> {
           <Container className="Block1__FormBlockCont p-0">
             <Row className="Block1__Line">
               <Col md={7} className="Block1__Left d-flex align-items-center justify-content-center">
-
+                <RequestForm clickHandler={this.sendRequestFormData} formTitle="Забронируйте дом заранее" />
               </Col>
-              <Col md={5} className="Block1__Right d-flex align-items-end justify-content-center">
-                <Container fluid className="Block1__Cards">
+
+              <Col md={5} className="Block1__Right p-0 d-flex align-items-end justify-content-center">
+                <Container fluid className="Block1__Cards p-0">
                   <Row className="Block1__CardsLine m-0">
-                    <Col xs={6} className="p-0"></Col>
-                    <Col xs={6} className="p-0"></Col>
+                    <Col xs={6} className="Block1__Card p-0">
+                      <ImageRectangle height="325px" img="/img/reccard1.jpg">
+                        <div className="IR__main1">Рыбалка</div>
+                      </ImageRectangle>
+                    </Col>
+                    <Col xs={6} className="Block1__Card p-0" style={{marginLeft: '-1px'}}>
+                    <ImageRectangle height="325px" img="/img/reccard2.jpg">
+                        <div className="IR__main1">Охота</div>
+                      </ImageRectangle>
+                    </Col>
                   </Row>
                 </Container>
               </Col>
