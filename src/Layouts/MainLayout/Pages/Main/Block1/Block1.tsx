@@ -66,9 +66,9 @@ class Block1 extends React.Component<Block1Props, Block1State> {
                 prevEl: '#Block1__PrewArrow',
               }}
               slidesPerView={1}
-              autoplay={{
-                delay: 5000,
-              }}
+              // autoplay={{
+              //   delay: 5000,
+              // }}
               pagination={{
                 el: '.swiper-pagination',
                 clickable: true,
@@ -87,12 +87,32 @@ class Block1 extends React.Component<Block1Props, Block1State> {
                         backgroundImage: `url("${slide.img}")`,
                         backgroundSize: 'cover',
                       }}
-                    ></Container>
+                    >
+                      <Container className="Block1__SlideText h-100 d-flex align-items-end">
+                        <div className="Block1__SlideContent">
+                          <Row className="Block1__SlideBaseName m-0 d-flex justify-content-end">
+                            На базе отдыха <span>«Надежда»</span>
+                          </Row>
+                          <Row className="Block1__SlideTitle m-0 ">{slide.title}</Row>
+                          <div className="Block1__SlideGreenLine"></div>
+                          <Row className="Block1__SlideDescription m-0">{slide.description}</Row>
+                        </div>
+                      </Container>
+                    </Container>
                   </SwiperSlide>
                 )
               })}
             </Swiper>
           </div>
+          
+          <Container className="Block1__SlideArrows">
+            <Row className="Block1__SlideArrowsCont m-0">
+              <div className="Block1__navigation">
+                <img id="Block1__PrewArrow" src="/img/leftArrow.svg" alt=""/>
+                <img id="Block1__NextArrow" src="/img/rightArrow.svg" alt=""/>
+              </div>
+            </Row>
+          </Container>
 
           <Row className="Block1__pagination m-0 d-none d-md-flex justify-content-center align-items-center">
             <Col>
@@ -101,6 +121,24 @@ class Block1 extends React.Component<Block1Props, Block1State> {
               <div className="Block1__paginationLine mt-5"></div>
             </Col>
           </Row>
+        </Container>
+
+        <Container fluid className="Block1__FormBlock">
+          <Container className="Block1__FormBlockCont p-0">
+            <Row className="Block1__Line">
+              <Col md={7} className="Block1__Left d-flex align-items-center justify-content-center">
+
+              </Col>
+              <Col md={5} className="Block1__Right d-flex align-items-end justify-content-center">
+                <Container fluid className="Block1__Cards">
+                  <Row className="Block1__CardsLine m-0">
+                    <Col xs={6} className="p-0"></Col>
+                    <Col xs={6} className="p-0"></Col>
+                  </Row>
+                </Container>
+              </Col>
+            </Row>
+          </Container>
         </Container>
       </Container>
     )

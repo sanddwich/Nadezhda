@@ -2,6 +2,7 @@
   .Block1__Slider {
     .Block1__Slide {
       height: 735px;
+      overflow-y: hidden;
     }
   }
 
@@ -41,8 +42,85 @@
       }
 
       .swiper-pagination-bullet-active {
-        color: #719A0A;
+        color: #719a0a;
       }
     }
+  }
+
+  .Block1__SlideArrows {
+    .Block1__SlideArrowsCont {
+      position: relative;
+      
+      .Block1__navigation {
+        position: absolute;
+        margin-top: -120px;
+        z-index: 150;
+
+        img {
+          margin-right: 20px;
+          cursor: pointer;
+
+          &:hover {
+            filter: brightness(0.8);
+          }
+        }
+      }
+    }
+  }
+
+  .Block1__SlideText {
+    padding-bottom: 180px;
+
+    .Block1__SlideBaseName {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      letter-spacing: 0.01em;
+      color: #ffffff;
+      padding-bottom: 20px;
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .Block1__SlideTitle {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 36px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding-bottom: 25px;
+
+    }
+
+    .Block1__SlideDescription {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+
+    }
+
+    .Block1__SlideGreenLine {
+      width: 270px;
+      height: 7px;
+      background-color: #719a0a;
+      margin-bottom: 25px;
+
+    }
+  }
+
+  .Block1__FormBlock {
+    background-color: #FAEEB5;
+  }
+
+  .Block1__Line {
+    height: 290px;
   }
 }
