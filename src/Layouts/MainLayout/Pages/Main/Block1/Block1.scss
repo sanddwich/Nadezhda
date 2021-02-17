@@ -137,4 +137,29 @@
       color: #ffffff;
     }
   }
+
+  @media screen and(max-width: 992px) {
+    .Block1__Line {
+      height: inherit;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  }
+
+  @media screen and(max-width: 576px) {
+    .Block1__SlideBaseName {
+      font-size: 18px !important;
+      line-height: 22px !important;
+    }
+
+    .Block1__SlideTitle {
+      font-size: 26px !important;
+      line-height: 145% !important;
+    }
+
+    .Block1__SlideDescription {
+      font-size: 16px !important;
+      line-height: 135% !important;
+    }
+  }
 }

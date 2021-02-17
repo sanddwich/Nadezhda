@@ -64,11 +64,19 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
 
     this.setState({ formData })
   }
-  
+
   changeDate = (date: Date | [Date, Date] | null): void => {
     const formData = this.state.formData
     const inputDate = date as Date
     formData.date = inputDate
+    inputDate === null ? (formData.dateValid = false) : (formData.dateValid = true)
+
+    this.setState({ formData })
+  }
+
+  dateTouched = (): void => {
+    const formData = this.state.formData
+    formData.inputDateTouched = true
     this.setState({ formData })
   }
 
@@ -81,7 +89,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
           <Col lg={8} className="p-0">
             <Container fluid className="RequestForm__inputFields">
               <Row className="m-0">
-                <Col lg={6} className="RequestForm__input p-0">
+                <Col lg={6} xs={12} className="RequestForm__input p-0">
                   <p>Номер телефона</p>
                   <div className="inputCont d-flex justify-content-start">
                     <div className="inputIcon">+7</div>
@@ -105,20 +113,22 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                   </div>
                 </Col>
 
-                <Col lg={6} className="RequestForm__input p-0">
+                <Col lg={6} xs={12} className="RequestForm__input p-0">
                   <p>Номер телефона</p>
-                  <div className="inputCont d-flex justify-content-start">
-                    <div className="inputIcon" style={{paddingLeft: '8px', paddingRight: '8px'}}>
+                  <div className="inputCont d-flex justify-content-lg-start">
+                    <div className="inputIcon" style={{ paddingLeft: '8px', paddingRight: '8px' }}>
                       <img src="/img/cil_calendar.svg" alt="" />
                     </div>
                     <div className="inputField">
                       <DatePicker
+                        className={`${this.state.formData.inputDateTouched ? (this.state.formData.dateValid ? 'inputValid' : 'inputInvalid') : ''}`}
                         locale={ru}
                         closeOnScroll={true}
                         dateFormat="dd.MM.yyyy"
                         selected={this.state.formData.date}
                         minDate={this.state.formData.minDate}
                         onChange={(date) => this.changeDate(date)}
+                        onInputClick={() => this.dateTouched()}
                       />
                     </div>
                   </div>

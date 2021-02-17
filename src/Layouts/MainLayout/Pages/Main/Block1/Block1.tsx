@@ -72,9 +72,9 @@ class Block1 extends React.Component<Block1Props, Block1State> {
                 prevEl: '#Block1__PrewArrow',
               }}
               slidesPerView={1}
-              // autoplay={{
-              //   delay: 5000,
-              // }}
+              autoplay={{
+                delay: 5000,
+              }}
               pagination={{
                 el: '.swiper-pagination',
                 clickable: true,
@@ -132,11 +132,11 @@ class Block1 extends React.Component<Block1Props, Block1State> {
         <Container fluid className="Block1__FormBlock">
           <Container className="Block1__FormBlockCont p-0">
             <Row className="Block1__Line">
-              <Col md={7} className="Block1__Left d-flex align-items-center justify-content-center">
+              <Col lg={7} md={6} xs={12} className="Block1__Left d-flex align-items-center justify-content-center">
                 <RequestForm clickHandler={this.sendRequestFormData} formTitle="Забронируйте дом заранее" />
               </Col>
 
-              <Col md={5} className="Block1__Right p-0 d-flex align-items-end justify-content-center">
+              <Col lg={5} md={6} className="Block1__Right p-0 d-none d-md-flex align-items-end justify-content-center">
                 <Container fluid className="Block1__Cards p-0">
                   <Row className="Block1__CardsLine m-0">
                     <Col xs={6} className="Block1__Card p-0">

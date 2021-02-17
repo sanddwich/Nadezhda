@@ -16,7 +16,11 @@
   padding-top: 30px !important;
 
   .MainHeader__menuLogo {
-    margin-top: -3px;
+    margin-top: -10px;
+  }
+
+  .MainHeader__sandwich {
+    margin-top: -5px !important;
   }
 
   a {
@@ -29,6 +33,21 @@
   .MainHeader__menuLinks {
     font-weight: 400;
     padding-right: 20px;
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+
+  .MainHeader__menuTel {
+    margin-top: -5px;
+    padding-bottom: 5px;
+  }
+
+  .MainHeader__mobileMenuCont {
+    animation-duration: 0.5s;
+
+    .MainHeader__mobileMenu {
+      z-index: 140;
+    }
   }
 
   @media screen and(max-width: 992px) {
@@ -41,6 +60,16 @@
     a {
       font-weight: 600;
       font-size: 16px;
+    }
+  }
+
+  @media screen and(max-width:576px) {
+    .MainHeader__menuLogo {
+      width: 195px;
+    }
+
+    .MainHeader__menuLinks {
+      padding: 0 !important;
     }
   }
 }

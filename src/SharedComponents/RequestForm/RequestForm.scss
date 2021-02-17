@@ -7,6 +7,7 @@
     line-height: 24px;
 
     color: #666666;
+    padding-bottom: 15px;
   }
 
   .react-datepicker-wrapper {
@@ -113,13 +114,13 @@
   }
 
   .RequestForm__button {
+    height: 150px;
     background-color: #719a0a;
 
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
     text-align: center;
     letter-spacing: 0.03em;
 
@@ -127,7 +128,7 @@
     cursor: pointer;
 
     &:hover {
-      filter: brightness(.9);
+      filter: brightness(0.9);
     }
   }
 
@@ -194,6 +195,36 @@
           // -webkit-box-shadow: inset 0px 0px 7px 0px rgba(134, 0, 0, 1);
           // -moz-box-shadow: inset 0px 0px 7px 0px rgba(134, 0, 0, 1);
           // box-shadow: inset 0px 0px 7px 0px rgba(134, 0, 0, 1);
+        }
+      }
+    }
+  }
+
+  @media screen and(max-width:992px) {
+    .RequestForm__input {
+      padding-bottom: 20px !important;
+    }
+
+    .formUnderTitle {
+      p {
+        padding-top: 0;
+      }
+    }
+
+    .RequestForm__button {
+      height: 80px;
+    }
+
+    .inputCont {
+      width: 100% !important;
+    }
+
+    .react-datepicker-wrapper {
+      width: 100%!important;
+      .react-datepicker__input-container {
+        input {
+          // width: 200px !important;
+          width:100% !important;
         }
       }
     }
