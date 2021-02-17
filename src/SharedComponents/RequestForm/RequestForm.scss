@@ -9,6 +9,86 @@
     color: #666666;
   }
 
+  .react-datepicker-wrapper {
+    .react-datepicker__input-container {
+      input {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #878787;
+
+        width: 130px !important;
+        height: 40px !important;
+        border: none;
+        outline: none;
+        text-align: center;
+
+        &:active,
+        &:target {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .react-datepicker-popper {
+    margin-top: 20px !important;
+
+    .react-datepicker {
+      border-radius: 0px !important;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+
+      .react-datepicker__navigation--previous {
+        border-right-color: #ffffff;
+        outline: none;
+        margin-top: 3px;
+      }
+
+      .react-datepicker__navigation--next {
+        border-left-color: #ffffff;
+        outline: none;
+        margin-top: 3px;
+      }
+
+      .react-datepicker__day-names {
+        padding-top: 5px;
+      }
+
+      .react-datepicker__current-month,
+      .react-datepicker__day-name {
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .react-datepicker__month {
+        width: 250px;
+
+        .react-datepicker__day {
+          width: 2rem;
+          height: 2rem;
+          padding-top: 3px;
+
+          // outline: none;
+        }
+      }
+
+      .react-datepicker__triangle {
+        display: none;
+      }
+
+      .react-datepicker__header {
+        background-color: #719a0a;
+        border-radius: 0px;
+      }
+    }
+  }
+
   .formUnderTitle {
     p {
       font-family: 'Montserrat';
@@ -25,8 +105,30 @@
 
   .RequestForm__formElements {
     background-color: #ffffff;
-    padding: 20px;
     border-left: #719a0a 4px solid;
+  }
+
+  .RequestForm__inputFields {
+    padding: 20px;
+  }
+
+  .RequestForm__button {
+    background-color: #719a0a;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: 0.03em;
+
+    color: #ffffff;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(.9);
+    }
   }
 
   .RequestForm__input {
@@ -43,7 +145,7 @@
     .inputCont {
       width: 170px;
       border-bottom: 2px solid #666666;
-      
+
       .inputIcon {
         width: 50px;
         height: 40px;

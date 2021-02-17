@@ -3,6 +3,10 @@ import { Col, Container, Row } from 'react-bootstrap'
 import ReactInputMask from 'react-input-mask'
 import './RequestForm.scss'
 
+import DatePicker from 'react-datepicker'
+import ru from 'date-fns/locale/ru'
+import 'react-datepicker/dist/react-datepicker.css'
+
 interface RequestFormProps {
   formTitle?: string
   clickHandler: (phone: string, date: string) => void
@@ -11,7 +15,8 @@ interface RequestFormProps {
 interface RequestFormState {
   formData: {
     phone: string
-    date: string
+    minDate: Date
+    date: Date
     minPhoneNumbers: number
     phoneValid: boolean
     dateValid: boolean
@@ -28,7 +33,8 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
     this.state = {
       formData: {
         phone: '',
-        date: '',
+        minDate: new Date(),
+        date: new Date(),
         minPhoneNumbers: 10,
         phoneValid: false,
         dateValid: false,
@@ -58,6 +64,13 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
 
     this.setState({ formData })
   }
+  
+  changeDate = (date: Date | [Date, Date] | null): void => {
+    const formData = this.state.formData
+    const inputDate = date as Date
+    formData.date = inputDate
+    this.setState({ formData })
+  }
 
   render() {
     return (
@@ -66,7 +79,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
 
         <Row className="RequestForm__formElements m-0">
           <Col lg={8} className="p-0">
-            <Container fluid className="RequestForm__inputFields p-0">
+            <Container fluid className="RequestForm__inputFields">
               <Row className="m-0">
                 <Col lg={6} className="RequestForm__input p-0">
                   <p>Номер телефона</p>
@@ -95,22 +108,17 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                 <Col lg={6} className="RequestForm__input p-0">
                   <p>Номер телефона</p>
                   <div className="inputCont d-flex justify-content-start">
-                    <div className="inputIcon"><img className="img-fluid" src="/img/cil_calendar.svg" alt=""/></div>
+                    <div className="inputIcon" style={{paddingLeft: '8px', paddingRight: '8px'}}>
+                      <img src="/img/cil_calendar.svg" alt="" />
+                    </div>
                     <div className="inputField">
-                      <ReactInputMask
-                        mask="(999) 999-99-99"
-                        className={`RequestForm__inputField ${
-                          this.state.formData.inputPhoneTouched
-                            ? this.state.formData.phoneValid
-                              ? 'inputValid'
-                              : 'inputInvalid'
-                            : null
-                        } `}
-                        type="tel"
-                        name="phone"
-                        placeholder="(___) ___-__-__"
-                        value={this.state.formData.phone}
-                        onChange={(event) => this.onPhoneChange(event)}
+                      <DatePicker
+                        locale={ru}
+                        closeOnScroll={true}
+                        dateFormat="dd.MM.yyyy"
+                        selected={this.state.formData.date}
+                        minDate={this.state.formData.minDate}
+                        onChange={(date) => this.changeDate(date)}
                       />
                     </div>
                   </div>
@@ -121,7 +129,9 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
               </Row>
             </Container>
           </Col>
-          <Col lg={4} className="RequestForm__button p-0"></Col>
+          <Col lg={4} className="RequestForm__button p-0 d-flex justify-content-center align-items-center">
+            Забронировать
+          </Col>
         </Row>
       </Container>
     )
