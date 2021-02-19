@@ -1,0 +1,25 @@
+.Block4 {
+  padding: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .Block4__cardCont {
+    padding: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  @media screen and(max-width:576px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    .Block4__Line{
+      margin: 0 !important;
+    }
+
+    .Block4__cardCont {
+      padding: 15px !important;
+    }
+
+  }
+}

@@ -26,7 +26,7 @@ class MainLayout extends React.Component<MainLayoutProps, MainLayoutState> {
           </Switch>
         </MainBody>
 
-        {/* <MainFooter /> */}
+        <MainFooter />
       </Container>
     )
   }

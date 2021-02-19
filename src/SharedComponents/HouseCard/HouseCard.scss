@@ -1,0 +1,113 @@
+.HouseCard {
+  .HouseCard__Line {
+    border: 1px solid #cccccc;
+  }
+
+  .HouseCard__RightContent {
+    height: 100%;
+  }
+
+  .HouseCard__RightFotter {
+    height: 55px;
+  }
+
+  .HouseCard__bottomData {
+    height: 55px;
+  }
+
+  .HouseCard__RightContent {
+    h1 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 145%;
+      color: #282828;
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+
+    ul {
+      padding-left: 10px;
+    }
+
+    li {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 145%;
+      color: #282828;
+      padding-left: 5px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .HouseCard__bottomDataRight {
+    background-color: #719a0a;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 145%;
+    color: #ffffff;
+  }
+
+  .HouseCard__info {
+    width: 115px;
+    background-color: #ffffff;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 145%;
+    color: #ac754c;
+    padding-top: 10px;
+
+    img {
+      margin-right: 5px;
+      margin-top: -8px;
+    }
+  }
+
+  .HouseCard__bottomData {
+    padding: 1px;
+    position: relative;
+    margin-top: -55px;
+  }
+
+  @media screen and(max-width:576px) {
+    .HouseCard__RightContent {
+      h1 {
+        font-size: 16px;
+        line-height: 120%;
+      }
+
+      li {
+        font-size: 14px;
+        line-height: 120%;
+      }
+    }
+
+    .HouseCard__Right {
+      height: 00px;
+    }
+
+    .HouseCard__RightContent {
+      height: 100px;
+    }
+
+    .HouseCard__bottomData {
+      margin-top: 50px;
+    }
+
+    .HouseCard__Left {
+      height: 328px;
+    }
+
+    .HouseCard__Line {
+      border: none;
+    }
+  }
+}
