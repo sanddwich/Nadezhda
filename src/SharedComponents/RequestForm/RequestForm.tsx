@@ -9,7 +9,6 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 interface RequestFormProps {
   formTitle?: string
-  clickHandler: (phone: string, date: string) => void
 }
 
 interface RequestFormState {

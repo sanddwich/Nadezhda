@@ -13,6 +13,10 @@
     color: #ffffff;
   }
 
+  .Block3__card {
+    // margin-left: -1px;
+  }
+
   .Block3__title {
     font-family: 'Montserrat';
     font-style: normal;
@@ -39,6 +43,10 @@
   .ImageRectangle__chid {
     width: 100%;
     padding: 50px;
+  }
+
+  .ImageRectangle {
+    
   }
 
   @media screen and(max-width:1200px) {

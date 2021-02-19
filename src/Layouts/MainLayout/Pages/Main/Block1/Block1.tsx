@@ -56,10 +56,6 @@ class Block1 extends React.Component<Block1Props, Block1State> {
     }
   }
 
-  sendRequestFormData = (phone: string, date: string): void => {
-
-  }
-
   render() {
     return (
       <Container fluid className="Block1 p-0">
@@ -133,7 +129,7 @@ class Block1 extends React.Component<Block1Props, Block1State> {
           <Container className="Block1__FormBlockCont p-0">
             <Row className="Block1__Line">
               <Col lg={7} md={6} xs={12} className="Block1__Left d-flex align-items-center justify-content-center">
-                <RequestForm clickHandler={this.sendRequestFormData} formTitle="Забронируйте дом заранее" />
+                <RequestForm formTitle="Забронируйте дом заранее" />
               </Col>
 
               <Col lg={5} md={6} className="Block1__Right p-0 d-none d-md-flex align-items-end justify-content-center">

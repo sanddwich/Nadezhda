@@ -1,0 +1,21 @@
+.Block6 {
+  padding: 0;
+  padding-top: 100px;
+
+  .RequestForm {
+    h1 {
+      color: #719a0a;
+    }
+  }
+
+  .Block6__img {
+    height: 310px;
+    margin-top: -75px !important;
+  }
+
+  @media screen and(max-width: 992px) {
+    .Block6__img {
+      // margin-top: -55px !important;
+    }
+  }
+}

@@ -10,6 +10,7 @@ interface HouseCardProps {
   pnumber: string
   price: string
   height: string
+  sm?: number
 }
 
 interface HouseCardState {}
@@ -20,7 +21,7 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
       <Container fluid className="HouseCard p-0">
         <Row className="HouseCard__Line" style={{ height: this.props.height }}>
           <Col
-            sm={6}
+            sm={this.props.sm ? this.props.sm : 6}
             xs={12}
             className="HouseCard__Left p-0 d-flex align-items-end"
             style={{ backgroundImage: `url("${this.props.img}")`, backgroundSize: 'cover' }}
@@ -44,7 +45,7 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
             </Container>
 
           </Col>
-          <Col sm={6} xs={12} className="HouseCard__Right">
+          <Col sm={this.props.sm ? (12-this.props.sm) : 6} xs={12} className="HouseCard__Right">
             <div className="HouseCard__RightContent">
               <h1>{this.props.title}</h1>
               <ul className="d-none d-sm-block">

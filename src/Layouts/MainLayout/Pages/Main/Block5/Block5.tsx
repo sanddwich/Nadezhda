@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row } from 'react-bootstrap'
+import { Container, Row, Table } from 'react-bootstrap'
 import './Block5.scss'
 
 interface ServiceProps {
@@ -185,7 +185,7 @@ class Block5 extends React.Component<Block5Props, Block5State> {
       return service
     })
 
-    this.setState({serviceList})
+    this.setState({ serviceList })
   }
 
   render() {
@@ -205,6 +205,38 @@ class Block5 extends React.Component<Block5Props, Block5State> {
             )
           })}
         </Row>
+        <Table className="Block5__Table" responsive>
+          <thead>
+            <tr>
+              <th>Предоставляемая услуга</th>
+              <th>Только проживание</th>
+              <th>Проживание +HB</th>
+              <th>Проживание +FB</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.serviceList.map((service, index) => {
+              if (service.isActive) {
+                return service.serviceProps.map((prop, index) => {
+                  return (
+                    <tr className="Block5__tr" key={index}>
+                      <td>{prop.serviceName}</td>
+                      <td className="text-center">
+                        {prop.price1} {prop.price1 !== '' && prop.price1 !== 'Бесплатно' ? 'рублей' : ''}
+                      </td>
+                      <td className="text-center">
+                        {prop.price2} {prop.price2 !== '' && prop.price2 !== 'Бесплатно' ? 'рублей' : ''}
+                      </td>
+                      <td className="text-center">
+                        {prop.price3} {prop.price3 !== '' && prop.price3 !== 'Бесплатно' ? 'рублей' : ''}
+                      </td>
+                    </tr>
+                  )
+                })
+              }
+            })}
+          </tbody>
+        </Table>
       </Container>
     )
   }

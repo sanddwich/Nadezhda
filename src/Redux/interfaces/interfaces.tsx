@@ -2,6 +2,7 @@ export interface AppState {
   loading: boolean
   error: string
   tariff: string
+  formData: FormData
 }
 
 export interface ToastState {
@@ -14,4 +15,9 @@ export interface ModalState {
   modalRequestForm: {
     isActive: boolean
   }
+}
+
+export interface FormData {
+  phone: string
+  date: Date
 }
