@@ -1,0 +1,44 @@
+.Block5 {
+  padding: 0;
+
+  h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 145%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #719a0a;
+    margin-bottom: 30px;
+  }
+
+  .Block5__serviceMenu {
+    margin-bottom: 30px;
+    .Block5__serviceMenuEl {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 145%;
+      color: #666666;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: all ease-in-out .3s;
+
+      margin-right: 30px;
+
+      &:hover {
+        color: #ac754c;
+        opacity: 1;
+      }
+    }
+
+    .isActive {
+      color: #ac754c;
+      text-decoration: underline;
+      opacity: 1;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import Block1 from './Block1/Block1'
 import Block2 from './Block2/Block2'
 import Block3 from './Block3/Block3'
 import Block4 from './Block4/Block4'
+import Block5 from './Block5/Block5'
 import './Main.scss'
 import TmpPage from './TmpPage/TmpPage'
 
@@ -21,6 +22,7 @@ class Main extends React.Component<MainProps, MainState> {
         <Block2 />
         <Block3 />
         <Block4 />
+        <Block5 />
 
       </Container>
     )
