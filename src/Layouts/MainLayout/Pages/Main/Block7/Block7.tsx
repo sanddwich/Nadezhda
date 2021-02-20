@@ -13,6 +13,7 @@ interface Block7State {}
 class Block7 extends React.Component<Block7Props, Block7State> {
   componentDidMount() {
     // this.getWeather()
+    
   }
 
   getWeather = async (): Promise<any> => {
@@ -47,7 +48,69 @@ class Block7 extends React.Component<Block7Props, Block7State> {
               <p>Номер телефона</p>
               <h4>8 (800) 600 71 99</h4>
             </div>
-            <div className="Block7__weather"></div>
+
+            <div className="Block7__weather">
+              <link
+                rel="stylesheet"
+                type="text/css"
+                href="https://nst1.gismeteo.ru/assets/flat-ui/legacy/css/informer.min.css"
+              />
+              <div id="gsInformerID-6dG32Nv46Lq3t7" className="gsInformer" style={{ width: '300px', height: '227px' }}>
+                <div className="gsIContent">
+                  <div id="cityLink">
+                    <a
+                      href="https://www.gismeteo.ru/weather-astrakhan-5130/"
+                      target="_blank"
+                      title="Погода в Астрахани"
+                    >
+                      <img
+                        src="https://nst1.gismeteo.ru/assets/flat-ui/img/gisloader.svg"
+                        width="24"
+                        height="24"
+                        alt="Погода в Астрахани"
+                      />
+                    </a>
+                  </div>
+                  <div className="gsLinks">
+                    <table>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div className="leftCol">
+                              <a href="https://www.gismeteo.ru/" target="_blank" title="Погода">
+                                <img
+                                  alt="Погода"
+                                  src="https://nst1.gismeteo.ru/assets/flat-ui/img/logo-mini2.png"
+                                  style={{ alignItems: 'center', border: 'none', width: '11px', height: '16px' }}
+                                />
+                                <img
+                                  src="https://nst1.gismeteo.ru/assets/flat-ui/img/informer/gismeteo.svg"
+                                  style={{ alignItems: 'center', border: 'none', left: '5px', top: '1px' }}
+                                />
+                              </a>
+                            </div>
+                            <div className="rightCol">
+                              <a
+                                href="https://www.gismeteo.ru/weather-astrakhan-5130/2-weeks/"
+                                target="_blank"
+                                title="Погода в Астрахани на 2 недели"
+                              >
+                                <img
+                                  src="https://nst1.gismeteo.ru/assets/flat-ui/img/informer/forecast-2weeks.ru.svg"
+                                  style={{ alignItems: 'center', border: 'none', top: 'auto' }}
+                                  alt="Погода в Астрахани на 2 недели"
+                                />
+                              </a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <script async src="https://www.gismeteo.ru/api/informer/getinformer/?hash=6dG32Nv46Lq3t7"></script>
+            </div>
           </Col>
           <Col md={8} className="Block7__Right p-0">
             <YMaps>
