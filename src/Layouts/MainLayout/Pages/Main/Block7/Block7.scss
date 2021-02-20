@@ -50,4 +50,11 @@
       color: #282828;
     }
   }
+
+  @media screen and(max-width: 576px) {
+    .Block7__map {
+      width: 100%;
+      height: 350px;
+    }
+  }
 }

@@ -1,3 +1,43 @@
 .MainFooter {
-  height: 100px;
+  margin-top: 50px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #282828;
+  
+  background-color: #faeeb5;
+
+  .MainFooter__Line {
+    height: 140px;
+  }
+  
+  .MainFooter__Left {
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  .MainFooter__Center {
+    color: #ffffff;
+    background-color: #719A0A;
+  }
+
+  @media screen and(max-width: 768px) {
+    .MainFooter__Line {
+      height: inherit;
+    }
+    
+    .MainFooter__Left {
+      height: 110px;
+    }
+  
+    .MainFooter__Center {
+      height: 110px;
+    }
+
+    .MainFooter__Right {
+      height: 110px;
+    }
+  }
 }

@@ -4,33 +4,33 @@ import './Block7.scss'
 
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
 
+import Config from '../../../../../Config/Config'
+
 interface Block7Props {}
 
-interface Block7State {
-  coordinates: {
-    center: number[]
-    zoom: number
-  },
-  mapLoading: boolean
-}
+interface Block7State {}
 
 class Block7 extends React.Component<Block7Props, Block7State> {
-  constructor(props: Block7Props) {
-    super(props)
-    this.state = {
-      coordinates: {
-        center: [45.968564, 48.12355],
-        zoom: 14,
-      },
-      mapLoading: true,
-    }
+  componentDidMount() {
+    // this.getWeather()
   }
 
-  // MyMapComponent = () => (
-  //   <GoogleMap defaultZoom={8} defaultCenter={{ lat: 45.968564, lng: 48.12355 }}>
-  //     {this.state.isMarkerShown && <Marker position={{ lat: 45.968564, lng: 48.12355 }} />}
-  //   </GoogleMap>
-  // )
+  getWeather = async (): Promise<any> => {
+    const url: string = `http://api.openweathermap.org/data/2.5/weather?lat=${Config.coordinates.center[0]}&lon=${Config.coordinates.center[1]}&lang=ru&units=metric&appid=${Config.weatherApi}`
+    // const url: string = `http://api.openweathermap.org/data/2.5/forecast/daily?lat=${Config.coordinates.center[0]}&lon=${Config.coordinates.center[1]}&lang=ru&units=metric&appid=${Config.weatherApi}`
+
+    // console.log(url)
+
+    try {
+      const res = await fetch(url, {
+        method: 'GET',
+      })
+
+      console.log(await res.json())
+    } catch (e) {
+      console.log(e)
+    }
+  }
 
   render() {
     return (
@@ -51,8 +51,8 @@ class Block7 extends React.Component<Block7Props, Block7State> {
           </Col>
           <Col md={8} className="Block7__Right p-0">
             <YMaps>
-              <Map defaultState={this.state.coordinates} className="Block7__map">
-                <Placemark key={0} geometry={this.state.coordinates.center} />
+              <Map defaultState={Config.coordinates} className="Block7__map">
+                <Placemark key={0} geometry={Config.coordinates.center} />
               </Map>
             </YMaps>
           </Col>
