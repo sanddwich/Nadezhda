@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Table } from 'react-bootstrap'
+import { Element } from 'react-scroll'
 import './Block5.scss'
 
 interface ServiceProps {
@@ -190,6 +191,7 @@ class Block5 extends React.Component<Block5Props, Block5State> {
 
   render() {
     return (
+      <Element name="Block5">
       <Container className="Block5">
         <h1>Прайс-лист</h1>
         <Row className="Block5__serviceMenu m-0">
@@ -237,7 +239,7 @@ class Block5 extends React.Component<Block5Props, Block5State> {
             })}
           </tbody>
         </Table>
-      </Container>
+      </Container></Element>
     )
   }
 }

@@ -6,8 +6,13 @@ import './RequestForm.scss'
 import DatePicker from 'react-datepicker'
 import ru from 'date-fns/locale/ru'
 import 'react-datepicker/dist/react-datepicker.css'
+import { connect } from 'react-redux'
+import { RootState } from '../../Redux'
+import { hideRequestModal, setModalSuccess } from '../../Redux/actions/modal'
 
 interface RequestFormProps {
+  hideRequestModal: () => void
+  setModalSuccess: (isActive: boolean) => void
   formTitle?: string
 }
 
@@ -23,6 +28,7 @@ interface RequestFormState {
     inputDateTouched: boolean
     formValid: boolean
     loading: boolean
+    formErrorMessage: string
   }
 }
 
@@ -36,13 +42,22 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
         date: new Date(),
         minPhoneNumbers: 10,
         phoneValid: false,
-        dateValid: false,
+        dateValid: true,
         inputPhoneTouched: false,
         inputDateTouched: false,
         formValid: false,
         loading: false,
+        formErrorMessage: '',
       },
     }
+    // console.log(this.state.formData.date)
+  }
+
+  componentDidMount() {
+    document.querySelectorAll('.react-datepicker__input-container').forEach(dp => {
+      const elemet = dp.querySelector('input') as HTMLElement
+      elemet.setAttribute('readOnly', 'true')
+    })
   }
 
   phoneValidate = (phone: string): boolean => {
@@ -60,6 +75,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
     formData.phone = event.target.value
     !formData.inputPhoneTouched && (formData.inputPhoneTouched = true)
     formData.phoneValid = this.phoneValidate(formData.phone)
+    formData.formErrorMessage = ''
 
     this.setState({ formData })
   }
@@ -69,6 +85,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
     const inputDate = date as Date
     formData.date = inputDate
     inputDate === null ? (formData.dateValid = false) : (formData.dateValid = true)
+    formData.formErrorMessage = ''
 
     this.setState({ formData })
   }
@@ -77,6 +94,87 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
     const formData = this.state.formData
     formData.inputDateTouched = true
     this.setState({ formData })
+  }
+
+  formReset = (): void => {
+    const formData = this.state.formData
+    formData.phone = ''
+    formData.phoneValid = false
+    formData.date = new Date()
+    this.setState({ formData })
+  }
+
+  requestFormButtonHandler = (): void => {
+    if (this.state.formData.phoneValid && this.state.formData.dateValid) {
+      this.sendRequest()
+    } else {
+      const formData = this.state.formData
+      formData.formErrorMessage = 'Заполните корректно поля формы'
+      this.setState({ formData })
+    }
+  }
+
+  convertDate = (date: Date): string => {
+    const monthList: string[] = [
+      'Января',
+      'Февраля',
+      'Марта',
+      'Апреля',
+      'Мая',
+      'Июня',
+      'Июля',
+      'Августа',
+      'Сентября',
+      'Октября',
+      'Ноября',
+      'Декабря',
+    ]
+
+    return (
+      date.getDate().toString() + ' ' + monthList[date.getMonth()] + ' ' + date.getFullYear().toString() + 'г.'
+    )
+  }
+
+  successSend = (): void => {
+    this.props.hideRequestModal()
+    this.props.setModalSuccess(true)
+  }
+
+  sendRequest = async (): Promise<void> => {
+    const formData = {
+      date: this.convertDate(this.state.formData.date),
+      phone: this.state.formData.phone,
+    }
+    this.formReset()
+
+    const url: string = '/api/index.php'
+
+    // console.log(formData)
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': formData.toString().length.toString(),
+        },
+      })
+
+      if (!res.ok) {
+        throw new Error('Ошибка запроса отправки сообщения')
+      }
+
+      const resData = await res.json()
+      if (resData !== 'error') {
+        this.successSend()
+        console.log('SUCCESS')
+      } else {
+        console.log('ERROR')
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   render() {
@@ -120,7 +218,13 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                     </div>
                     <div className="inputField">
                       <DatePicker
-                        className={`${this.state.formData.inputDateTouched ? (this.state.formData.dateValid ? 'inputValid' : 'inputInvalid') : ''}`}
+                        className={`${
+                          this.state.formData.inputDateTouched
+                            ? this.state.formData.dateValid
+                              ? 'inputValid'
+                              : 'inputInvalid'
+                            : ''
+                        }`}
                         locale={ru}
                         closeOnScroll={true}
                         dateFormat="dd.MM.yyyy"
@@ -134,11 +238,19 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                 </Col>
               </Row>
               <Row className="formUnderTitle m-0">
+                {this.state.formData.formErrorMessage.length > 0 ? (
+                  <div className="RequestForm__errorMessage">{this.state.formData.formErrorMessage}</div>
+                ) : null}
+
                 <p>Мы свяжемся с вами, чтобы уточнить детали</p>
               </Row>
             </Container>
           </Col>
-          <Col lg={4} className="RequestForm__button p-0 d-flex justify-content-center align-items-center">
+          <Col
+            lg={4}
+            className="RequestForm__button p-0 d-flex justify-content-center align-items-center"
+            onClick={() => this.requestFormButtonHandler()}
+          >
             Забронировать
           </Col>
         </Row>
@@ -147,4 +259,16 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
   }
 }
 
-export default RequestForm
+const mapDispatchToProps = {
+  hideRequestModal,
+  setModalSuccess,
+}
+
+const mapStateToProps = (state: RootState) => {
+  const modal = state.modal
+  return {
+    modal,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestForm)

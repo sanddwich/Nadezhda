@@ -4,8 +4,15 @@ import { Container } from 'react-bootstrap'
 import { Route, Switch } from 'react-router-dom'
 import AdminLayout from './Layouts/AdminLayout/AdminLayout'
 import MainLayout from './Layouts/MainLayout/MainLayout'
+import { RootState } from './Redux'
+import { connect } from 'react-redux'
+import { ModalState } from './Redux/interfaces/interfaces'
+import RequestFormModal from './SharedComponents/RequestFormModal/RequestFormModal'
+import SuccessMessage from './SharedComponents/SuccessMessage/SuccessMessage'
 
-interface AppProps {}
+interface AppProps {
+  modal: ModalState
+}
 
 interface AppState {}
 
@@ -13,6 +20,10 @@ class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <Container fluid className="App p-0">
+        {this.props.modal.modalRequestForm.isActive ? <RequestFormModal /> : null}
+
+        {this.props.modal.modalSuccessMessage.isActive ? <SuccessMessage /> : null}
+
         <Switch>
           <Route path="/admin" component={AdminLayout} />
           <Route path="/" component={MainLayout} />
@@ -22,4 +33,13 @@ class App extends React.Component<AppProps, AppState> {
   }
 }
 
-export default App
+const mapDispatchToProps = {}
+
+const mapStateToProps = (state: RootState) => {
+  const modal = state.modal
+  return {
+    modal,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

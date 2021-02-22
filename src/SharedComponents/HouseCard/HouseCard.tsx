@@ -1,5 +1,8 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import { RootState } from '../../Redux'
+import { showRequestModal } from '../../Redux/actions/modal'
 import './HouseCard.scss'
 
 interface HouseCardProps {
@@ -11,6 +14,8 @@ interface HouseCardProps {
   price: string
   height: string
   sm?: number
+
+  showRequestModal: () => void
 }
 
 interface HouseCardState {}
@@ -43,9 +48,8 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
                 </div>
               </div>
             </Container>
-
           </Col>
-          <Col sm={this.props.sm ? (12-this.props.sm) : 6} xs={12} className="HouseCard__Right">
+          <Col sm={this.props.sm ? 12 - this.props.sm : 6} xs={12} className="HouseCard__Right">
             <div className="HouseCard__RightContent">
               <h1>{this.props.title}</h1>
               <ul className="d-none d-sm-block">
@@ -79,7 +83,12 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
               </div>
             </div>
           </Col>
-          <Col sm={6} xs={12} className="HouseCard__bottomDataRight d-flex align-items-center">
+          <Col
+            sm={6}
+            xs={12}
+            className="HouseCard__bottomDataRight d-flex align-items-center"
+            onClick={() => this.props.showRequestModal()}
+          >
             {this.props.price} руб с человека
           </Col>
         </Row>
@@ -88,4 +97,15 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
   }
 }
 
-export default HouseCard
+const mapDispatchToProps = {
+  showRequestModal,
+}
+
+const mapStateToProps = (state: RootState) => {
+  const modal = state.modal
+  return {
+    modal,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HouseCard)

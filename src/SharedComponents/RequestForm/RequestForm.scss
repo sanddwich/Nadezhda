@@ -200,6 +200,10 @@
     }
   }
 
+  .RequestForm__errorMessage {
+    color: #ffbebe;
+  }
+
   @media screen and(max-width:992px) {
     .RequestForm__input {
       padding-bottom: 20px !important;

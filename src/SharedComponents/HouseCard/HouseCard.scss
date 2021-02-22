@@ -77,6 +77,14 @@
     margin-top: -55px;
   }
 
+  .HouseCard__bottomDataRight {
+    cursor: pointer;
+    
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+
   @media screen and(max-width:576px) {
     .HouseCard__RightContent {
       h1 {

@@ -7,6 +7,7 @@ interface Config {
   region: string
   raion: string
   place: string
+  deeSite: string
 }
 
 const lat: number = 45.968564
@@ -21,6 +22,7 @@ const Config: Config = {
   region: 'Астраханская область',
   raion: 'Камызякский район',
   place: 'с. Жан-Аул',
+  deeSite: 'https://deedesign.ru',
 }
 
 export default Config

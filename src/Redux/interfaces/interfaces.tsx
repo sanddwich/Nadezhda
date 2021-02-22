@@ -15,6 +15,9 @@ export interface ModalState {
   modalRequestForm: {
     isActive: boolean
   }
+  modalSuccessMessage: {
+    isActive: boolean
+  }
 }
 
 export interface FormData {

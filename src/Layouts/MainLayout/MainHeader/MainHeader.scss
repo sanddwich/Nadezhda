@@ -40,6 +40,14 @@
   .MainHeader__menuTel {
     margin-top: -5px;
     padding-bottom: 5px;
+
+    // a {
+    //   transition: all ease-in-out 0.3s;
+
+    //   &:hover {
+    //     color: #719a0a;
+    //   }
+    // }
   }
 
   .MainHeader__mobileMenuCont {
@@ -47,6 +55,22 @@
 
     .MainHeader__mobileMenu {
       z-index: 140;
+    }
+  }
+
+  .MainHeader__button {
+    width: 320px;
+    height: 80px;
+    background-color: #719a0a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(0.9);
     }
   }
 

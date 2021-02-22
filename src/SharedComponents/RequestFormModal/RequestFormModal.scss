@@ -1,0 +1,51 @@
+.RequestFormModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 300;
+
+  .RequestFormModal__window {
+    margin: 10px;
+    background-color: #ffffff;
+  }
+
+  .RequestFormModal__closeBtnCont {
+    position: relative;
+    padding-right: 10px;
+    padding-top: 10px;
+
+    .RequestFormModal__closeBtn {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #808080;
+      border-radius: 50%;
+      transition: all ease-in-out 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2e2e2e;
+      }
+    }
+  }
+
+  .RequestFormModal__Cont {
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    h1 {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+
+      color: #666666;
+    }
+  }
+}

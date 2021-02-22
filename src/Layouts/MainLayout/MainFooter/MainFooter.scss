@@ -21,6 +21,19 @@
   .MainFooter__Center {
     color: #ffffff;
     background-color: #719A0A;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+
+  .MainFooter__Right {
+    a {
+      color: #282828;
+      font-weight: bold;
+      margin-left: 5px;
+    }
   }
 
   @media screen and(max-width: 768px) {
