@@ -66,7 +66,11 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
           </Col>
         </Row>
         <Row className="HouseCard__bottomData">
-          <Col sm={6} xs={12} className="HouseCard__bottomDataLeft p-0 d-none d-sm-flex justify-content-between">
+          <Col
+            sm={this.props.sm ? this.props.sm : 6}
+            xs={12}
+            className="HouseCard__bottomDataLeft p-0 d-none d-sm-flex justify-content-between"
+          >
             <div className="HouseCard__info d-flex align-items-center justify-content-center">
               <div className="HouseCard__infoCont">
                 <img className="img-fluid" src="/img/home.svg" alt="" />
@@ -84,7 +88,7 @@ class HouseCard extends React.Component<HouseCardProps, HouseCardState> {
             </div>
           </Col>
           <Col
-            sm={6}
+            sm={this.props.sm ? 12 - this.props.sm : 6}
             xs={12}
             className="HouseCard__bottomDataRight d-flex align-items-center"
             onClick={() => this.props.showRequestModal()}

@@ -25,6 +25,11 @@
       color: #282828;
       border: none;
       vertical-align: middle;
+      text-align: center;
+
+      &:nth-child(1) {
+        text-align: left;
+      }
 
       &:nth-child(2n) {
         background-color: #fff3b8;
@@ -95,12 +100,12 @@
   ::-webkit-scrollbar {
     width: 24px; /* ширина для вертикального скролла */
     height: 15px; /* высота для горизонтального скролла */
-    background-color: #FAEEB5;
+    background-color: #faeeb5;
   }
 
   /* ползунок скроллбара */
   ::-webkit-scrollbar-thumb {
-    background-color: #719A0A;
+    background-color: #719a0a;
     border-radius: 9em;
     box-shadow: inset 1px 1px 10px #f3faf7;
   }
@@ -115,5 +120,13 @@
     display: none;
   }
 
-  
+  @media screen and(max-width: 576px) {
+    .Block5__Table {
+      th {
+        &:nth-child(1) {
+          width: 200px !important;
+        }
+      }
+    }
+  }
 }

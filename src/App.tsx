@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { ModalState } from './Redux/interfaces/interfaces'
 import RequestFormModal from './SharedComponents/RequestFormModal/RequestFormModal'
 import SuccessMessage from './SharedComponents/SuccessMessage/SuccessMessage'
+import GalleryModal from './SharedComponents/GalleryModal/GalleryModal'
 
 interface AppProps {
   modal: ModalState
@@ -21,7 +22,7 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <Container fluid className="App p-0">
         {this.props.modal.modalRequestForm.isActive ? <RequestFormModal /> : null}
-
+        {this.props.modal.galleryModal.isActive ? <GalleryModal /> : null}        
         {this.props.modal.modalSuccessMessage.isActive ? <SuccessMessage /> : null}
 
         <Switch>

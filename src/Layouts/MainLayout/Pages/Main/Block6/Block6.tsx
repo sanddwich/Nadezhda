@@ -16,7 +16,7 @@ class Block6 extends React.Component<Block6Props, Block6State> {
             <RequestForm formTitle="Забронируйте дом заранее" />
           </Col>
         </Row>
-        <Row className="Block6__img m-0" style={{backgroundImage: `url("/img/6_1.jpg")`}}></Row>
+        <Row className="Block6__img m-0" style={{backgroundImage: `url("/img/6_1.jpg")`, backgroundSize: 'cover'}}></Row>
       </Container>
     )
   }

@@ -11,21 +11,29 @@ import 'swiper/swiper.scss'
 import 'swiper/components/navigation/navigation.scss'
 import 'swiper/components/pagination/pagination.scss'
 import ImageRectangle from '../../../../../SharedComponents/ImageRectangle/ImageRectangle'
+import Config from '../../../../../Config/Config'
+import { RootState } from '../../../../../Redux'
+import { connect } from 'react-redux'
+import { ModalState } from '../../../../../Redux/interfaces/interfaces'
+import { setGalleryModal } from '../../../../../Redux/actions/modal'
 
 // install Swiper components
 SwiperCore.use([Navigation, Autoplay])
 
-interface Block2Props {}
+interface Block2Props {
+  setGalleryModal: (isActive: boolean, activeImg: string) => void
+  modal: ModalState
+}
 
-interface Block2State {}
+interface Block2State {
+  images: string[]
+}
 
 class Block2 extends React.Component<Block2Props, Block2State> {
   constructor(props: Block2Props) {
     super(props)
     this.state = {
-      formData: {
-        date: new Date(),
-      },
+      images: Config.images,
     }
   }
 
@@ -63,27 +71,25 @@ class Block2 extends React.Component<Block2Props, Block2State> {
                 delay: 5000,
               }}
             >
-              <SwiperSlide>
-                <Container className="p-2 ">
-                  <div className="Block2__Slide">
-                    <ImageRectangle img="/img/block2_1.jpg" height="427px" />
-                  </div>
-                </Container>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Container className="p-2">
-                  <div className="Block2__Slide">
-                    <ImageRectangle img="/img/block2_2.jpg" height="427px" />
-                  </div>
-                </Container>
-              </SwiperSlide>
+              {this.state.images.map((img, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <Container className="p-2 ">
+                      <div className="Block2__Slide" onClick={() => this.props.setGalleryModal(true, `${img}`)}>
+                        <ImageRectangle img={`/img/gallery/${img}`} height="427px" />
+                      </div>
+                    </Container>
+                  </SwiperSlide>
+                )
+              })}
             </Swiper>
           </Col>
         </Row>
 
         <Row className="Block2__naviCont m-0 position-relative">
           <div className="Block2__navi">
-            <img id="Block2__PrewArrow" src="/img/yleft.svg" alt=""/> <img id="Block2__NextArrow" src="/img/yright.svg" alt=""/>
+            <img id="Block2__PrewArrow" src="/img/yleft.svg" alt="" />{' '}
+            <img id="Block2__NextArrow" src="/img/yright.svg" alt="" />
           </div>
         </Row>
       </Container>
@@ -91,4 +97,15 @@ class Block2 extends React.Component<Block2Props, Block2State> {
   }
 }
 
-export default Block2
+const mapDispatchToProps = {
+  setGalleryModal,
+}
+
+const mapStateToProps = (state: RootState) => {
+  const modal = state.modal
+  return {
+    modal,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Block2)

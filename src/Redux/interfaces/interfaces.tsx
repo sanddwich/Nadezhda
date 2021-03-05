@@ -18,6 +18,10 @@ export interface ModalState {
   modalSuccessMessage: {
     isActive: boolean
   }
+  galleryModal: {
+    activeImg: string
+    isActive: boolean
+  }
 }
 
 export interface FormData {

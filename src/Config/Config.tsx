@@ -8,6 +8,7 @@ interface Config {
   raion: string
   place: string
   deeSite: string
+  images: string[]
 }
 
 const lat: number = 45.968564
@@ -23,6 +24,18 @@ const Config: Config = {
   raion: 'Камызякский район',
   place: 'с. Жан-Аул',
   deeSite: 'https://deedesign.ru',
+  images: [
+    '1.jpg',
+    '2.jpg',
+    '3.jpg',
+    '4.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+    '8.jpg',
+    '9.jpg',
+    '10.jpg',
+  ]
 }
 
 export default Config
