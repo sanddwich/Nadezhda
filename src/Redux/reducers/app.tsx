@@ -4,7 +4,7 @@ import { AppState } from '../interfaces/interfaces'
 
 const initialState: AppState = {
   error: '',
-  loading: true,
+  loading: false,
   tariff: '',
   formData: {
     phone: '',

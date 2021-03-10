@@ -9,9 +9,11 @@ import 'react-datepicker/dist/react-datepicker.css'
 import { connect } from 'react-redux'
 import { RootState } from '../../Redux'
 import { hideRequestModal, setModalSuccess } from '../../Redux/actions/modal'
+import { setAppLoading } from '../../Redux/actions/app'
 
 interface RequestFormProps {
   hideRequestModal: () => void
+  setAppLoading: (loading: boolean) => void
   setModalSuccess: (isActive: boolean) => void
   formTitle?: string
 }
@@ -54,7 +56,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
   }
 
   componentDidMount() {
-    document.querySelectorAll('.react-datepicker__input-container').forEach(dp => {
+    document.querySelectorAll('.react-datepicker__input-container').forEach((dp) => {
       const elemet = dp.querySelector('input') as HTMLElement
       elemet.setAttribute('readOnly', 'true')
     })
@@ -130,9 +132,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
       'Декабря',
     ]
 
-    return (
-      date.getDate().toString() + ' ' + monthList[date.getMonth()] + ' ' + date.getFullYear().toString() + 'г.'
-    )
+    return date.getDate().toString() + ' ' + monthList[date.getMonth()] + ' ' + date.getFullYear().toString() + 'г.'
   }
 
   successSend = (): void => {
@@ -150,6 +150,8 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
     const url: string = '/api/index.php'
 
     // console.log(formData)
+
+    this.props.setAppLoading(true)
 
     try {
       const res = await fetch(url, {
@@ -172,6 +174,9 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
       } else {
         console.log('ERROR')
       }
+
+      this.props.setAppLoading(false)
+
     } catch (e) {
       console.log(e)
     }
@@ -262,6 +267,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
 const mapDispatchToProps = {
   hideRequestModal,
   setModalSuccess,
+  setAppLoading,
 }
 
 const mapStateToProps = (state: RootState) => {
