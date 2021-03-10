@@ -21,7 +21,7 @@ $message = '<p>Была отправлена заявка на бронь баз
 //     $message = $message.'<h3 style="color:#9E001F;background-color:#E9E9A0;padding:20px;">Выбран тарифный план: '.$tariff.'</h3>';
 // }
 
-$mail_address = 'Iww@inbox.ru';
+$mail_address = 'lww@inbox.ru';
 // $mail_address = 'bck-dkiselev@yandex.ru';
 $title = 'Заявка на бронь базы отдыха ' . date('d-m-Y G:i:s') .'!';
 // Рассылка почты
