@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import HelmetMetaTags from '../../../../SharedComponents/HelmetMetaTags/HelmetMetaTags'
 import Block1 from './Block1/Block1'
 import Block2 from './Block2/Block2'
 import Block3 from './Block3/Block3'
@@ -18,7 +19,8 @@ class Main extends React.Component<MainProps, MainState> {
   render() {
     return (
       <Container fluid className="Main p-0">
-        
+        <HelmetMetaTags />
+
         {/* <TmpPage /> */}
         <Block1 />
         <Block2 />
@@ -27,7 +29,6 @@ class Main extends React.Component<MainProps, MainState> {
         <Block5 />
         <Block6 />
         <Block7 />
-
       </Container>
     )
   }

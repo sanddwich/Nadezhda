@@ -20,7 +20,7 @@ class GalleryModal extends React.Component<GalleryModalProps, GalleryModalState>
 
   bodyUnBlock = (): void => {
     document.querySelector('body')?.classList.remove('modal-open')
-  }  
+  }
 
   closeModal = (imgName: string): void => {
     this.props.setGalleryModal(false, imgName)
@@ -33,8 +33,10 @@ class GalleryModal extends React.Component<GalleryModalProps, GalleryModalState>
       <Container fluid className="GalleryModal p-0 d-flex align-items-center justify-content-center">
         <div className="GalleryModal__body">
           <Row className="GalleryModal__closeCont m-0 d-flex justify-content-end">
-            <div className="GalleryModal__closeBtn" onClick={() => this.closeModal('')}>
-              <img src="/img/close.svg" alt="" />
+            <div className="GalleryModal__closeBtnCont">
+              <div className="GalleryModal__closeBtn" onClick={() => this.closeModal('')}>
+                <img src="/img/close.svg" alt="" />
+              </div>
             </div>
           </Row>
           <Row className="GalleryModal__Content m-0">

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import { Redirect, Route, Switch } from 'react-router-dom'
-import HelmetMetaTags from '../../SharedComponents/HelmetMetaTags/HelmetMetaTags'
 import MainBody from './MainBody/MainBody'
 import MainFooter from './MainFooter/MainFooter'
 import MainHeader from './MainHeader/MainHeader'
@@ -17,7 +16,6 @@ class MainLayout extends React.Component<MainLayoutProps, MainLayoutState> {
   render() {
     return (
       <Container fluid className="MainLayout p-0">
-        <HelmetMetaTags />
         <MainHeader />
         <MainBody>
           <Switch>
