@@ -1,3 +1,6 @@
+$galleryWidth: 270px;
+$galleryHeight: 427px;
+
 .GalleryModal {
   position: fixed;
   top: 0;
@@ -43,7 +46,8 @@
 
   .GalleryModal__Content {
     img {
-      width: 400px !important;
+      width: $galleryWidth * 1.5;
+      height: $galleryHeight * 1.5;
     }
   }
 
@@ -56,7 +60,8 @@
   @media screen and(max-width: 768px) {
     .GalleryModal__Content {
       img {
-        width: 320px !important;
+        width: $galleryWidth * 1.2;
+        height: $galleryHeight * 1.2;
       }
     }
   }
