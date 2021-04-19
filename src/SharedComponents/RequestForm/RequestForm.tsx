@@ -176,7 +176,6 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
       }
 
       this.props.setAppLoading(false)
-
     } catch (e) {
       console.log(e)
     }
@@ -248,6 +247,12 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                 ) : null}
 
                 <p>Мы свяжемся с вами, чтобы уточнить детали</p>
+                <p className="RequestForm__politic">
+                  Заполняя форму я подтверждаю факт своего ознакомления с{' '}
+                  <a href="/politic.pdf" target="_blank">
+                    политикой конфиденциальности сайта
+                  </a>
+                </p>
               </Row>
             </Container>
           </Col>
