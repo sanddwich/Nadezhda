@@ -215,7 +215,7 @@ class RequestForm extends React.Component<RequestFormProps, RequestFormState> {
                 </Col>
 
                 <Col lg={6} xs={12} className="RequestForm__input p-0">
-                  <p>Номер телефона</p>
+                  <p>Дата брони</p>
                   <div className="inputCont d-flex justify-content-lg-start">
                     <div className="inputIcon" style={{ paddingLeft: '8px', paddingRight: '8px' }}>
                       <img src="/img/cil_calendar.svg" alt="" />
