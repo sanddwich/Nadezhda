@@ -37,6 +37,7 @@
     transform: translateY(-120%);
     animation-duration: 0.5s;
     width: 300px;
+    z-index: 100;
 
     ul {
       list-style-type: none;
@@ -64,6 +65,7 @@
   color: #ffffff;
   padding: 20px;
   animation-duration: 0.5s;
+  z-index: 100;
 
   ul {
     list-style-type: none;

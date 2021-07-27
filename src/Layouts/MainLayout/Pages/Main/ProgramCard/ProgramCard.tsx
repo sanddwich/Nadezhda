@@ -13,7 +13,7 @@ export default function ProgramCard(props: ProgramCardProps) {
     <Container fluid className="ProgramCard">
       <Container className="ProgramCard__Cont">
         <Row className="ProgramCard__Row m-0">
-          <Col md={6} xs={12} className="ProgramCard__Col p-0">
+          <Col md={6} xs={12} className="ProgramCard__Col p-3 p-sm-0">
             <h1>{props.program.name}</h1>
             <h3>Программа:</h3>
             {props.program.programElements.map((prEl, index) => {
@@ -37,9 +37,27 @@ export default function ProgramCard(props: ProgramCardProps) {
               )
             })}
           </Col>
-          <Col md={6} xs={12} className="ProgramCard__Col p-0">
-            <img className="img-fluid" src={props.program.images[0]} alt="" />
-
+          <Col md={6} xs={12} className="ProgramCard__Col p-0 d-flex justify-content-center">
+            <div className="ProgramCard__right">
+              <img className="img-fluid" src={props.program.images[0]} alt="" />
+              {props.program.prices.map((price, index) => {
+                if (!price.rewerse) {
+                  return (
+                    <div key={index} className="ProgramCard__priceEl">
+                      <span className="green">{price.green}</span>
+                      <span className="black">{price.black}</span>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <div key={index} className="ProgramCard__priceEl">
+                      <span className="black">{price.black}</span>
+                      <span className="green">{price.green}</span>
+                    </div>
+                  )
+                }
+              })}
+            </div>
           </Col>
         </Row>
       </Container>
