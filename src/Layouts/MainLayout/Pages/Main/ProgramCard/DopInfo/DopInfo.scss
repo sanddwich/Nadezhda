@@ -1,0 +1,73 @@
+.DopInfo {
+  .DopInfo__img {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 145%;
+    color: #ffffff;
+
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #719a0a;
+    border-radius: 50%;
+    margin-left: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #8bb819;
+    }
+  }
+
+  .DopInfo__cont {
+    position: absolute;
+    background-color: #719a0a;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 145%;
+    color: #ffffff;
+    padding: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transform: translateY(-120%);
+    animation-duration: 0.5s;
+    width: 300px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    @media screen and(max-width: 768px) {
+      margin-left: -80px;
+    }
+  }
+}
+
+.mobContDopInfo {
+  width: 300px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #719a0a;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 145%;
+  color: #ffffff;
+  padding: 20px;
+  animation-duration: 0.5s;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}

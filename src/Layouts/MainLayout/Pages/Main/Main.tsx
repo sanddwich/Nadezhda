@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import Config from '../../../../Config/Config'
 import HelmetMetaTags from '../../../../SharedComponents/HelmetMetaTags/HelmetMetaTags'
 import Block1 from './Block1/Block1'
 import Block2 from './Block2/Block2'
@@ -9,7 +10,8 @@ import Block5 from './Block5/Block5'
 import Block6 from './Block6/Block6'
 import Block7 from './Block7/Block7'
 import './Main.scss'
-import TmpPage from './TmpPage/TmpPage'
+import ProgramCard from './ProgramCard/ProgramCard'
+// import TmpPage from './TmpPage/TmpPage'
 
 interface MainProps {}
 
@@ -25,6 +27,7 @@ class Main extends React.Component<MainProps, MainState> {
         <Block1 />
         <Block2 />
         <Block3 />
+        <ProgramCard program={Config.programs[0]} />
         <Block4 />
         <Block5 />
         <Block6 />
