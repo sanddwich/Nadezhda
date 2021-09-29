@@ -46,13 +46,13 @@ class Block5 extends React.Component<Block5Props, Block5State> {
               price3: '12 000 руб.',
             },
             {
-              serviceName: 'Дети до 6 лет',
+              serviceName: 'Дети до 6 лет включительно',
               price1: 'Бесплатно',
               price2: '500 руб.',
               price3: '700 руб.',
             },
             {
-              serviceName: 'Дети от 6 до 12 лет',
+              serviceName: 'Дети от 7 до 12 лет',
               price1: '1 200 руб.',
               price2: '1 900 руб.',
               price3: '2 250 руб.',
@@ -75,6 +75,12 @@ class Block5 extends React.Component<Block5Props, Block5State> {
               price2: '',
               price3: '',
             },
+            {
+              serviceName: 'Однодневное пребывание без заселения (вариант «Пикник»). Дети с 7 до 12 лет',
+              price1: '300 руб.',
+              price2: '',
+              price3: '',
+            },
           ],
         },
         {
@@ -84,9 +90,9 @@ class Block5 extends React.Component<Block5Props, Block5State> {
           serviceProps: [
             {
               serviceName: 'Катер с четырехтактным мотором 60 л/с в сопровождении егеря (не более 8ч.)',
-              price1: '4 000 руб.',
-              price2: '4 000 руб.',
-              price3: '5 000 руб.',
+              price1: '4 500 руб.',
+              price2: '4 500 руб.',
+              price3: '5 500 руб.',
             },
             {
               serviceName:
@@ -100,6 +106,12 @@ class Block5 extends React.Component<Block5Props, Block5State> {
               price1: '1 000 руб./день',
               price2: '1 000 руб./день',
               price3: '',
+            },
+            {
+              serviceName: 'Гребная лодка с мотором 9 л/с',
+              price1: '1 500 руб./день',
+              price2: '1 500 руб./день',
+              price3: '1 500 руб./день',
             },
             {
               serviceName: 'Превышении времени по аренде гребной лодки более 8ч.',
@@ -128,13 +140,13 @@ class Block5 extends React.Component<Block5Props, Block5State> {
           serviceProps: [
             {
               serviceName: 'Баня на дровах (до 5-ти человек)',
-              price1: '1 000 руб./час',
+              price1: '1 500 руб./час',
               price2: '',
               price3: '',
             },
             {
               serviceName: 'Веник',
-              price1: '300 руб./час',
+              price1: '500 руб./час',
               price2: '',
               price3: '',
             },
