@@ -54,7 +54,7 @@ class Block1 extends React.Component<Block1Props, Block1State> {
         },        
         {
           title: '-30%* весь ноябрь',
-          description: ['*Скидка на проживание -30%.', 'Стоимость одного часа в банни 1000 р.'],
+          description: ['*Скидка на проживание -30%.', 'Стоимость одного часа в бане 1000 р.'],
           img: '/img/slide1-3.jpg',
           slideNum: '04',
         },
