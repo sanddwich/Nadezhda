@@ -18,7 +18,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay])
 
 interface Slide {
   title: string
-  description: string
+  description: string[]
   img: string
   slideNum: string
 }
@@ -36,21 +36,27 @@ class Block1 extends React.Component<Block1Props, Block1State> {
       slides: [
         {
           title: 'Отдых для всей семьи',
-          description: 'С прекрасными видами на устья Волги',
+          description: ['С прекрасными видами на устья Волги'],
           img: '/img/slide1-0.jpg',
           slideNum: '01',
         },
         {
           title: 'Охота на утку',
-          description: 'Приятное времяпровождение',
+          description: ['Приятное времяпровождение'],
           img: '/img/slide1-1.jpg',
           slideNum: '02',
         },
         {
           title: 'Зимняя рыбалка',
-          description: 'Приятное времяпровождение',
+          description: ['Приятное времяпровождение'],
           img: '/img/slide1-2.jpg',
           slideNum: '03',
+        },        
+        {
+          title: '-30%* весь ноябрь',
+          description: ['*Скидка на проживание -30%.', 'Стоимость одного часа в банни 1000 р.'],
+          img: '/img/slide1-3.jpg',
+          slideNum: '04',
         },
       ],
     }
@@ -97,7 +103,11 @@ class Block1 extends React.Component<Block1Props, Block1State> {
                           </Row>
                           <Row className="Block1__SlideTitle m-0 ">{slide.title}</Row>
                           <div className="Block1__SlideGreenLine"></div>
-                          <Row className="Block1__SlideDescription m-0">{slide.description}</Row>
+                          <Row className="Block1__SlideDescription m-0 d-block">
+                            {slide.description.map((line, index) => {
+                              return <p key={index}>{line}</p>
+                            })}
+                          </Row>
                         </div>
                       </Container>
                     </Container>
